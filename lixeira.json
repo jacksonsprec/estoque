@@ -1,0 +1,52 @@
+{
+    "itens_removidos": [
+        {
+            "nome": "Prego 20mm",
+            "item": {
+                "descricao": "Caixa com 100 unidades",
+                "quantidade": 0,
+                "validade": "",
+                "chegada": "17/07/2026 08:37:06",
+                "log": [
+                    {
+                        "tipo": "entrada",
+                        "nome": "Prego 20mm",
+                        "quantidade": 100,
+                        "motivo": "Sem motivo informado",
+                        "data": "17/07/2026",
+                        "hora": "08:37:06"
+                    },
+                    {
+                        "tipo": "retirada",
+                        "nome": "Prego 20mm",
+                        "quantidade": 100,
+                        "motivo": "Erro na entrada",
+                        "data": "17/07/2026",
+                        "hora": "08:40:44"
+                    }
+                ]
+            },
+            "removido_em": "17/07/2026 08:47:26"
+        },
+        {
+            "nome": "Pinus 8x6 3m",
+            "item": {
+                "descricao": "Pinus 8x6 3m estrutural",
+                "quantidade": 8,
+                "validade": "2050/01/01",
+                "chegada": "17/07/2026 08:21:44",
+                "log": [
+                    {
+                        "tipo": "entrada",
+                        "nome": "Pinus 8x6 3m",
+                        "quantidade": 8,
+                        "motivo": "Compra",
+                        "data": "17/07/2026",
+                        "hora": "08:21:44"
+                    }
+                ]
+            },
+            "removido_em": "17/07/2026 08:47:39"
+        }
+    ]
+}

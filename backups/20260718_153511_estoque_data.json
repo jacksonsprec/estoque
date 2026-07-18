@@ -1,0 +1,194 @@
+{
+    "itens": {
+        "Pregos 20 mm": {
+            "descricao": "Pregos 20 mm fixação caixa com 100",
+            "quantidade": 324,
+            "validade": "2030/01/01",
+            "chegada": "17/07/2026 08:23:08",
+            "log": [
+                {
+                    "tipo": "entrada",
+                    "nome": "Pregos 20 mm",
+                    "quantidade": 100,
+                    "motivo": "Compra no X fornecedor",
+                    "data": "17/07/2026",
+                    "hora": "08:23:08"
+                },
+                {
+                    "tipo": "retirada",
+                    "nome": "Pregos 20 mm",
+                    "quantidade": 1,
+                    "motivo": "Obra X",
+                    "data": "17/07/2026",
+                    "hora": "08:23:38"
+                },
+                {
+                    "tipo": "entrada",
+                    "nome": "Pregos 20 mm",
+                    "quantidade": 200,
+                    "motivo": "Compra",
+                    "data": "17/07/2026",
+                    "hora": "08:24:38"
+                },
+                {
+                    "tipo": "entrada",
+                    "nome": "Pregos 20 mm",
+                    "quantidade": 25,
+                    "motivo": "Sem motivo informado",
+                    "data": "17/07/2026",
+                    "hora": "13:00:01"
+                }
+            ],
+            "nome": "Pregos 20 mm"
+        },
+        "Pinus 8x6": {
+            "descricao": "3 metros",
+            "quantidade": 56,
+            "validade": "",
+            "chegada": "17/07/2026 08:48:06",
+            "log": [
+                {
+                    "tipo": "entrada",
+                    "nome": "Pinus 8x6",
+                    "quantidade": 56,
+                    "motivo": "Compra",
+                    "data": "17/07/2026",
+                    "hora": "08:48:06"
+                }
+            ],
+            "nome": "Pinus 8x6"
+        },
+        "Pregos 20 mm | 2027/01/01": {
+            "nome": "Pregos 20 mm",
+            "descricao": "Pregos 20 mm fixação caixa com 100",
+            "quantidade": 33,
+            "validade": "2027/01/01",
+            "chegada": "17/07/2026 14:25:13",
+            "log": [
+                {
+                    "tipo": "entrada",
+                    "nome": "Pregos 20 mm",
+                    "quantidade": 33,
+                    "motivo": "Sem motivo informado",
+                    "data": "17/07/2026",
+                    "hora": "14:25:13"
+                }
+            ]
+        },
+        "Pregos 20 mm | 01/01/2030": {
+            "nome": "Pregos 20 mm",
+            "descricao": "Pregos 20 mm fixação caixa com 100",
+            "quantidade": 3456,
+            "validade": "01/01/2030",
+            "chegada": "17/07/2026 14:27:30",
+            "log": [
+                {
+                    "tipo": "entrada",
+                    "nome": "Pregos 20 mm",
+                    "quantidade": 3456,
+                    "motivo": "Sem motivo informado",
+                    "data": "17/07/2026",
+                    "hora": "14:27:30"
+                }
+            ]
+        }
+    },
+    "log_global": [
+        {
+            "tipo": "entrada",
+            "nome": "Pinus 8x6 3m",
+            "quantidade": 8,
+            "motivo": "Compra",
+            "data": "17/07/2026",
+            "hora": "08:21:44"
+        },
+        {
+            "tipo": "entrada",
+            "nome": "Pregos 20 mm",
+            "quantidade": 100,
+            "motivo": "Compra no X fornecedor",
+            "data": "17/07/2026",
+            "hora": "08:23:08"
+        },
+        {
+            "tipo": "retirada",
+            "nome": "Pregos 20 mm",
+            "quantidade": 1,
+            "motivo": "Obra X",
+            "data": "17/07/2026",
+            "hora": "08:23:38"
+        },
+        {
+            "tipo": "entrada",
+            "nome": "Pregos 20 mm",
+            "quantidade": 200,
+            "motivo": "Compra",
+            "data": "17/07/2026",
+            "hora": "08:24:38"
+        },
+        {
+            "tipo": "entrada",
+            "nome": "Prego 20mm",
+            "quantidade": 100,
+            "motivo": "Sem motivo informado",
+            "data": "17/07/2026",
+            "hora": "08:37:06"
+        },
+        {
+            "tipo": "retirada",
+            "nome": "Prego 20mm",
+            "quantidade": 100,
+            "motivo": "Erro na entrada",
+            "data": "17/07/2026",
+            "hora": "08:40:44"
+        },
+        {
+            "tipo": "remoção_definitiva",
+            "nome": "Prego 20mm",
+            "quantidade": 0,
+            "motivo": "Item removido do estoque e enviado para a lixeira",
+            "data": "17/07/2026",
+            "hora": "08:47:26"
+        },
+        {
+            "tipo": "remoção_definitiva",
+            "nome": "Pinus 8x6 3m",
+            "quantidade": 8,
+            "motivo": "Item removido do estoque e enviado para a lixeira",
+            "data": "17/07/2026",
+            "hora": "08:47:39"
+        },
+        {
+            "tipo": "entrada",
+            "nome": "Pinus 8x6",
+            "quantidade": 56,
+            "motivo": "Compra",
+            "data": "17/07/2026",
+            "hora": "08:48:06"
+        },
+        {
+            "tipo": "entrada",
+            "nome": "Pregos 20 mm",
+            "quantidade": 25,
+            "motivo": "Sem motivo informado",
+            "data": "17/07/2026",
+            "hora": "13:00:01"
+        },
+        {
+            "tipo": "entrada",
+            "nome": "Pregos 20 mm",
+            "quantidade": 33,
+            "motivo": "Sem motivo informado",
+            "data": "17/07/2026",
+            "hora": "14:25:13"
+        },
+        {
+            "tipo": "entrada",
+            "nome": "Pregos 20 mm",
+            "quantidade": 3456,
+            "motivo": "Sem motivo informado",
+            "data": "17/07/2026",
+            "hora": "14:27:30"
+        }
+    ]
+}

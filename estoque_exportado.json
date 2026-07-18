@@ -1,0 +1,86 @@
+{
+    "itens": {
+        "Pinus 8x6 3m": {
+            "descricao": "Pinus 8x6 3m estrutural",
+            "quantidade": 8,
+            "validade": "2050/01/01",
+            "chegada": "17/07/2026 08:21:44",
+            "log": [
+                {
+                    "tipo": "entrada",
+                    "nome": "Pinus 8x6 3m",
+                    "quantidade": 8,
+                    "motivo": "Compra",
+                    "data": "17/07/2026",
+                    "hora": "08:21:44"
+                }
+            ]
+        },
+        "Pregos 20 mm": {
+            "descricao": "Pregos 20 mm fixação caixa com 100",
+            "quantidade": 299,
+            "validade": "2050/01/01",
+            "chegada": "17/07/2026 08:23:08",
+            "log": [
+                {
+                    "tipo": "entrada",
+                    "nome": "Pregos 20 mm",
+                    "quantidade": 100,
+                    "motivo": "Compra no X fornecedor",
+                    "data": "17/07/2026",
+                    "hora": "08:23:08"
+                },
+                {
+                    "tipo": "retirada",
+                    "nome": "Pregos 20 mm",
+                    "quantidade": 1,
+                    "motivo": "Obra X",
+                    "data": "17/07/2026",
+                    "hora": "08:23:38"
+                },
+                {
+                    "tipo": "entrada",
+                    "nome": "Pregos 20 mm",
+                    "quantidade": 200,
+                    "motivo": "Compra",
+                    "data": "17/07/2026",
+                    "hora": "08:24:38"
+                }
+            ]
+        }
+    },
+    "log_global": [
+        {
+            "tipo": "entrada",
+            "nome": "Pinus 8x6 3m",
+            "quantidade": 8,
+            "motivo": "Compra",
+            "data": "17/07/2026",
+            "hora": "08:21:44"
+        },
+        {
+            "tipo": "entrada",
+            "nome": "Pregos 20 mm",
+            "quantidade": 100,
+            "motivo": "Compra no X fornecedor",
+            "data": "17/07/2026",
+            "hora": "08:23:08"
+        },
+        {
+            "tipo": "retirada",
+            "nome": "Pregos 20 mm",
+            "quantidade": 1,
+            "motivo": "Obra X",
+            "data": "17/07/2026",
+            "hora": "08:23:38"
+        },
+        {
+            "tipo": "entrada",
+            "nome": "Pregos 20 mm",
+            "quantidade": 200,
+            "motivo": "Compra",
+            "data": "17/07/2026",
+            "hora": "08:24:38"
+        }
+    ]
+}
