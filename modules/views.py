@@ -6,11 +6,19 @@ class ToolbarView:
     def __init__(self, parent, app):
         self.app = app
         self.frame = ttk.Frame(parent)
-        self.frame.pack(fill="x", padx=10, pady=(10, 0))
+        self.frame.pack(fill="x", expand=True, padx=10, pady=(10, 0))
 
         self.status_var = tk.StringVar(value="Sistema pronto.")
-        self.status_label = ttk.Label(self.frame, textvariable=self.status_var, anchor="w")
-        self.status_label.pack(side="left", fill="x", expand=True)
+        self.status_label = tk.Label(
+            self.frame,
+            textvariable=self.status_var,
+            anchor="w",
+            justify="left",
+            wraplength=700,
+            padx=4,
+            pady=4,
+        )
+        self.status_label.pack(side="left", fill="x", expand=True, padx=(0, 10))
 
         self.botao_tema = ttk.Button(self.frame, text="Tema: Claro", command=app.alternar_tema)
         self.botao_tema.pack(side="right")
@@ -101,9 +109,26 @@ class ConsultaView:
         frame_left.pack(side="left", fill="y", padx=(10, 5), pady=10)
         app.widgets_tema.append(frame_left)
 
-        frame_right = ttk.Frame(frame)
-        frame_right.pack(side="right", fill="both", expand=True, padx=(5, 10), pady=10)
-        app.widgets_tema.append(frame_right)
+        scroll_canvas = tk.Canvas(frame, highlightthickness=0)
+        scroll_canvas.pack(side="left", fill="both", expand=True, padx=(5, 0), pady=10)
+
+        scrollbar = ttk.Scrollbar(frame, orient="vertical", command=scroll_canvas.yview)
+        scrollbar.pack(side="right", fill="y", pady=10)
+        scroll_canvas.configure(yscrollcommand=scrollbar.set)
+
+        frame_content = ttk.Frame(scroll_canvas)
+        scroll_canvas.create_window((0, 0), window=frame_content, anchor="nw")
+        frame_content.bind("<Configure>", lambda event: scroll_canvas.configure(scrollregion=scroll_canvas.bbox("all")))
+        app.widgets_tema.append(frame_content)
+
+        frame_center = ttk.Frame(frame_content)
+        frame_center.grid(row=0, column=0, sticky="nsew", padx=(0, 10))
+        frame_quick = ttk.Frame(frame_content)
+        frame_quick.grid(row=0, column=1, sticky="nsew")
+        frame_content.grid_columnconfigure(0, weight=1)
+        frame_content.grid_columnconfigure(1, weight=1)
+        app.widgets_tema.append(frame_center)
+        app.widgets_tema.append(frame_quick)
 
         app.tree_estoque = ttk.Treeview(
             frame_left,
@@ -140,13 +165,13 @@ class ConsultaView:
         app.filtro_validade.bind("<<ComboboxSelected>>", app.filtrar_estoque)
         app.widgets_tema.append(app.filtro_validade)
 
-        tk.Label(frame_right, text="Dashboard do estoque:", font=("Arial", 10, "bold")).pack(anchor="w")
-        app.dashboard_text = tk.Text(frame_right, height=8, wrap="word", state="disabled")
+        tk.Label(frame_center, text="Dashboard do estoque:", font=("Arial", 10, "bold")).pack(anchor="w")
+        app.dashboard_text = tk.Text(frame_center, height=8, wrap="word", state="disabled")
         app.dashboard_text.pack(fill="x", pady=(5, 10))
         app.widgets_tema.append(app.dashboard_text)
 
-        tk.Label(frame_right, text="Alertas de validade:", font=("Arial", 10, "bold")).pack(anchor="w")
-        app.alerta_validade = tk.Text(frame_right, height=7, wrap="word", state="disabled")
+        tk.Label(frame_center, text="Alertas de validade:", font=("Arial", 10, "bold")).pack(anchor="w")
+        app.alerta_validade = tk.Text(frame_center, height=7, wrap="word", state="disabled")
         app.alerta_validade.pack(fill="x", pady=(5, 10))
         app.alerta_validade.tag_configure("titulo_vencido", foreground="#b91c1c", font=("TkDefaultFont", 9, "bold"))
         app.alerta_validade.tag_configure("titulo_5", foreground="#b45309", font=("TkDefaultFont", 9, "bold"))
@@ -158,47 +183,47 @@ class ConsultaView:
         app.alerta_validade.tag_configure("proximo_15", foreground="#1d4ed8", font=("TkDefaultFont", 9, "normal"))
         app.widgets_tema.append(app.alerta_validade)
 
-        tk.Label(frame_right, text="Dados do material selecionado:", font=("Arial", 10, "bold")).pack(anchor="w")
-        app.info_material = tk.Text(frame_right, height=8, wrap="word", state="disabled")
+        tk.Label(frame_center, text="Dados do material selecionado:", font=("Arial", 10, "bold")).pack(anchor="w")
+        app.info_material = tk.Text(frame_center, height=8, wrap="word", state="disabled")
         app.info_material.pack(fill="x", pady=(5, 10))
         app.widgets_tema.append(app.info_material)
 
-        tk.Label(frame_right, text="Movimentação rápida:", font=("Arial", 10, "bold")).pack(anchor="w", pady=(0, 5))
+        tk.Label(frame_quick, text="Movimentação rápida:", font=("Arial", 10, "bold")).pack(anchor="w", pady=(0, 5))
         app.consulta_material_var = tk.StringVar(value="Nenhum material selecionado")
-        tk.Label(frame_right, textvariable=app.consulta_material_var).pack(anchor="w")
+        tk.Label(frame_quick, textvariable=app.consulta_material_var).pack(anchor="w")
 
-        tk.Label(frame_right, text="Quantidade:").pack(anchor="w", pady=(8, 2))
-        app.consulta_quantidade = tk.Spinbox(frame_right, from_=1, to=100000, width=15)
+        tk.Label(frame_quick, text="Quantidade:").pack(anchor="w", pady=(8, 2))
+        app.consulta_quantidade = tk.Spinbox(frame_quick, from_=1, to=100000, width=15)
         app.consulta_quantidade.pack(anchor="w")
         app.widgets_tema.append(app.consulta_quantidade)
 
-        tk.Label(frame_right, text="Motivo:").pack(anchor="w", pady=(8, 2))
-        app.consulta_motivo = tk.Entry(frame_right, width=40)
+        tk.Label(frame_quick, text="Motivo:").pack(anchor="w", pady=(8, 2))
+        app.consulta_motivo = tk.Entry(frame_quick, width=40)
         app.consulta_motivo.pack(anchor="w")
         app.widgets_tema.append(app.consulta_motivo)
 
-        botoes_container = ttk.Frame(frame_right)
+        botoes_container = ttk.Frame(frame_quick)
         botoes_container.pack(fill="x", pady=(10, 5))
         app.widgets_tema.append(botoes_container)
 
         botao_entrada_rapida = ttk.Button(botoes_container, text="Entrada rápida", command=app.entrada_rapida_consulta)
-        botao_entrada_rapida.pack(side="left", padx=(0, 5))
+        botao_entrada_rapida.pack(side="left", padx=(0, 5), pady=(0, 5))
         app.widgets_tema.append(botao_entrada_rapida)
 
         botao_retirada_rapida = ttk.Button(botoes_container, text="Retirada rápida", command=app.retirada_rapida_consulta)
-        botao_retirada_rapida.pack(side="left", padx=(0, 5))
+        botao_retirada_rapida.pack(side="left", padx=(0, 5), pady=(0, 5))
         app.widgets_tema.append(botao_retirada_rapida)
 
         botao_retirada_maxima = ttk.Button(botoes_container, text="Retirar máxima", command=app.retirada_maxima_consulta)
-        botao_retirada_maxima.pack(side="left", padx=(0, 5))
+        botao_retirada_maxima.pack(side="left", padx=(0, 5), pady=(0, 5))
         app.widgets_tema.append(botao_retirada_maxima)
 
         botao_remover = ttk.Button(botoes_container, text="Remover item", command=app.remover_item_estoque)
-        botao_remover.pack(side="left", padx=(0, 5))
+        botao_remover.pack(side="left", padx=(0, 5), pady=(0, 5))
         app.widgets_tema.append(botao_remover)
 
         botao_exportar_pdf = ttk.Button(botoes_container, text="Exportar PDF", command=app.exportar_relatorio_pdf)
-        botao_exportar_pdf.pack(side="left")
+        botao_exportar_pdf.pack(side="left", pady=(0, 5))
         app.widgets_tema.append(botao_exportar_pdf)
 
 

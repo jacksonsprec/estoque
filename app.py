@@ -5,7 +5,6 @@ import tkinter as tk
 
 from modules.config import carregar_configuracao, obter_senha_remocao, salvar_configuracao
 from modules.persistence import carregar_dados, carregar_lixeira, carregar_tema, salvar_dados, salvar_lixeira, salvar_tema
-from modules.reporting import exportar_relatorio_pdf
 from modules.validations import dias_ate_validade, validar_quantidade, validar_validade
 from modules.views import ConsultaView, EntradaView, LogView, RetiradaView, ToolbarView
 
@@ -587,7 +586,21 @@ class EstoqueApp:
         if not arquivo:
             return
 
-        exportar_relatorio_pdf(self.estoque, arquivo)
+        try:
+            from modules.reporting import exportar_relatorio_pdf as exportar_relatorio_pdf_func
+        except ModuleNotFoundError as exc:
+            if exc.name == "reportlab":
+                messagebox.showerror(
+                    "Dependência ausente",
+                    "Para exportar relatórios em PDF, a biblioteca 'reportlab' precisa estar instalada.\n\n"
+                    "No terminal, execute:\n"
+                    "py -m pip install reportlab\n\n"
+                    "Depois tente novamente.",
+                )
+                return
+            raise
+
+        exportar_relatorio_pdf_func(self.estoque, arquivo)
         self.atualizar_status(f"Relatório exportado para {arquivo}.")
         messagebox.showinfo("Sucesso", f"Relatório exportado com sucesso em:\n{arquivo}")
 
